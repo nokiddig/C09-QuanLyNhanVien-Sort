@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -88,6 +89,13 @@ public class QuanLyNhanVien{
         System.out.println(dsNhanVien.get(2).toString());
     }
 
+    private void birthdayInMurrentMonth(int month) {
+        for (int i = 0; i < dsNhanVien.size(); i++) {
+            if (dsNhanVien.get(i).getBirthday().getMonthValue() == month) {
+                System.out.println(dsNhanVien.get(i).toString());
+            }
+        }
+    }
     public static void main(String[] args) {
         String menu = "1.Show\n" +
                 "2.Add new\n" +
@@ -95,8 +103,9 @@ public class QuanLyNhanVien{
                 "4.Edit by id\n" +
                 "5.Find by name\n" +
                 "6.Top 3 salary\n" +
-                "7.Exit\n" +
-                "Input your choice here: \n";
+                "7.Output birthday in current month\n" +
+                "8.Exit\n" +
+                "Input your choice here:";
         Scanner scanner = new Scanner(System.in);
         int choice;
         QuanLyNhanVien quanLyNhanVien = new QuanLyNhanVien();
@@ -123,6 +132,9 @@ public class QuanLyNhanVien{
                     quanLyNhanVien.top3Salary();
                     break;
                 case 7:
+                    quanLyNhanVien.birthdayInMurrentMonth(LocalDate.now().getMonthValue());
+                    break;
+                case 8:
                     System.exit(0);
                     break;
             }

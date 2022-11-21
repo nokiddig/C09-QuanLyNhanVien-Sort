@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class NhanVien implements Comparable<NhanVien{
+public class NhanVien implements Comparable<NhanVien>{
     static int genId = 1;
     private int id;
     private String name;
